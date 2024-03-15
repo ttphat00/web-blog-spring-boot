@@ -13,6 +13,7 @@ public interface PostRepository extends JpaRepository<PostEntity, Integer> {
             "OR LOWER(p.content) LIKE LOWER(concat('%', :search, '%')) " +
             "OR LOWER(p.description) LIKE LOWER(concat('%', :search, '%'))")
     List<PostEntity> findByTitleOrDescriptionOrContentContaining(String search, Pageable pageable);
+
     @Query("SELECT COUNT(p) FROM PostEntity p " +
             "WHERE LOWER(p.title) LIKE LOWER(concat('%', :search, '%')) " +
             "OR LOWER(p.content) LIKE LOWER(concat('%', :search, '%')) " +

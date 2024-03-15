@@ -69,6 +69,7 @@ public class ApplicationSecurity {
                 .antMatchers(HttpMethod.GET, "/users/avatar/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/topics/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/posts/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/likes/**").permitAll()
                 .anyRequest().authenticated();
 
         http.exceptionHandling()
